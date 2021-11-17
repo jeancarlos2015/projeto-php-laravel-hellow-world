@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('api/teste', function () {
+    $valores = [];
+    for ($i = 0; $i < 10; $i++) {
+        array_push($valores, 'Valor ' . $i);
+    }
+    return $valores;
+})->name('api_modelos_publicos')
+    ->middleware('cors');
