@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('api/publico/teste', function () {
+    $valores = [];
+    for ($i = 0; $i < 10; $i++) {
+        array_push($valores, 'Valor ' . $i);
+    }
+    return response()->json($valores);
+})->name('api_modelos_publicos')
+    ->middleware('cors');
